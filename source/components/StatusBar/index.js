@@ -6,8 +6,21 @@ import Styles from './styles.m.css';
 
 export default class StarusBar extends Component {
     render () {
-        return <section className = { Styles.statusBar }>
-          <button></button>
-        </section>
+        const {
+            avatar,
+            currentUserFirstName,
+            currentUserLastName,
+        } = this.props;
+
+        return (
+            <section className = { Styles.statusBar }>
+                <button>
+                    <img src = { avatar } />
+                    <span>{ currentUserFirstName }</span>
+                    &nbsp;
+                    <span>{ currentUserLastName }</span>
+                </button>
+            </section>
+        );
     }
 }
