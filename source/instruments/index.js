@@ -8,7 +8,7 @@ export const sum = (operand1, operand2) => {
     return operand1 + operand2;
 };
 
-export const delay = (duration = 1000) => {
+export const delay = (duration = 2000) => {
     return new Promise((resolve) => {
         setTimeout(resolve, duration);
     });
