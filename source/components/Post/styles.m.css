@@ -46,6 +46,7 @@
         margin-top: 16px;
         font-size: 14px;
     }
+}
 
     .cross {
         content: '';
@@ -62,5 +63,3 @@
             background-position: -13px 0;
         }
     }
-
-}
