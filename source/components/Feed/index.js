@@ -19,6 +19,7 @@ export default class Feed extends Component {
         this._createPost = this._createPost.bind(this);
         this._setPostFachingState = this._setPostFachingState.bind(this);
         this._likePost = this._likePost.bind(this);
+        this._deletePost = this._deletePost.bind(this);
     }
 
     state = {
@@ -82,14 +83,28 @@ export default class Feed extends Component {
         })
     }
 
+    async _deletePost (id) {
+        this._setPostFachingState(true);
+
+        await delay(2000);
+
+        this.setState(({ posts }) => ({
+            posts:    posts.filter((post) => post.id !== id),
+            spinning: false,
+        }));
+
+
+    }
+
     render () {
         const { posts, spinning } = this.state;
-        const postsJSX = posts.map((post) => {
+        const postsJSX = posts.filter((post) => {
             return (
                 <Post
                     key = { post.id }
                     { ...post }
                     _likePost = { this._likePost }
+                    _deletePost = { this._deletePost }
                 />
             )
         });
